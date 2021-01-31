@@ -1,12 +1,14 @@
 from flask import (
     Flask,
     render_template,
-    request
+    request,
+    jsonify
 )
-
 from app.models.action import Action
 from app.controllers.actions import Actions
 from app.handlers.windows import Windows
+from app.models.error import InvalidUsage
+
 # Create the application instance
 app = Flask(__name__, template_folder="templates")
 
@@ -16,6 +18,13 @@ app = Flask(__name__, template_folder="templates")
 @app.route('/')
 def home():
     return render_template('home.html')
+
+
+@app.errorhandler(InvalidUsage)
+def handle_invalid_usage(error):
+    response = jsonify(error.to_dict())
+    response.status_code = error.status_code
+    return response
 
 
 # If we're running in stand alone mode, run the application
