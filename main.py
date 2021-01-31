@@ -4,9 +4,9 @@ from flask import (
     request
 )
 
-from src.models.action import Action
-from src.controllers.actions import Actions
-from src.handlers.win import Windows
+from app.models.action import Action
+from app.controllers.actions import Actions
+from app.handlers.windows import Windows
 # Create the application instance
 app = Flask(__name__, template_folder="templates")
 
