@@ -5,7 +5,7 @@ from flask import (
     jsonify
 )
 from app.models.action import Action
-from app.controllers.actions import Actions
+from app.controllers.actions import ActionsController
 from app.handlers.windows import Windows
 from app.models.error import InvalidUsage
 
@@ -30,5 +30,5 @@ def handle_invalid_usage(error):
 # If we're running in stand alone mode, run the application
 if __name__ == '__main__':
     desktop = Windows()
-    actions = Actions(app, desktop)
+    actions = ActionsController(app, desktop)
     app.run(debug=True)

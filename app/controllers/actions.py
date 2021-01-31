@@ -4,7 +4,7 @@ from app.models.action import Action
 
 
 
-class Actions():
+class ActionsController():
     def __init__(self, app: Flask, desktop: Desktop):
         self.app = app
         self.desktop = desktop
