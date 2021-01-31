@@ -5,7 +5,7 @@ from flask import (
     jsonify
 )
 from app.models.action import Action
-from app.controllers.actions import ActionsController
+from app.controllers.actionsController import ActionsController
 from app.handlers.windows import Windows
 from app.models.error import InvalidUsage
 import socket
