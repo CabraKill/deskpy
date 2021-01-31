@@ -2,6 +2,8 @@ from app.models.action import Action
 
 
 class Desktop():
+    SHUTDOWNTIME = 300
+    
     def __init__(self):
         self.initializeMap()
 

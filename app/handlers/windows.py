@@ -6,18 +6,18 @@ from flask_api import status
 
 
 class Windows(Desktop):
+    
+
     def __init__(self):
         self.initializeMap()
 
     def turnOn(self, action: Action):
         msg = "Already on XD"
-        print(msg)
         return msg
 
     def turnOff(self, action: Action):
-        os.system("shutdown -s -t 3600")
+        os.system(f"shutdown -s -t {self.SHUTDOWNTIME}")
         msg = "Turning off."
-        print(msg)
         return msg
 
     def cancelTurnOff(self, action: Action):
