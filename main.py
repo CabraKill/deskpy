@@ -8,6 +8,7 @@ from app.models.action import Action
 from app.controllers.actions import ActionsController
 from app.handlers.windows import Windows
 from app.models.error import InvalidUsage
+import socket
 
 # Create the application instance
 app = Flask(__name__, template_folder="templates")
@@ -31,4 +32,6 @@ def handle_invalid_usage(error):
 if __name__ == '__main__':
     desktop = Windows()
     actions = ActionsController(app, desktop)
-    app.run(debug=True)
+    hostname = socket.gethostname()
+    local_ip = socket.gethostbyname(hostname)
+    app.run(host=local_ip,debug=True)
