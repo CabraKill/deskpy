@@ -9,3 +9,4 @@ A python server to controll its desktop.
 
 ## Next Implementatios 🚀:
 * Open programs
+* Add a "box" to store something just once. Like temporary links to catch through phone.
