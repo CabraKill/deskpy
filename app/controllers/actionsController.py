@@ -9,10 +9,11 @@ class ActionsController():
         self.app = app
         self.desktop = desktop
 
-        @self.app.route('/actions', methods=['GET', 'POST', 'PUT', 'DELETE'])
-        def _actions():
+        @self.app.route('/actions/<int:id>', methods=['GET', 'POST', 'PUT', 'DELETE'])
+        def _actions(id):
             if request.method == 'GET':
-                return "get"
+                responseAction = Action.fromId(id)
+                return desktop.executeAction(responseAction)
             if request.method == 'POST':
                 responseAction = Action.fromJson(request.json)
                 return desktop.executeAction(responseAction)

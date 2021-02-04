@@ -11,6 +11,10 @@ class Action():
     def fromJson(body: dict):
         jsonMap = body
         return Action(jsonMap.get("id"), jsonMap.get("typeAction"), jsonMap.get("name"))
+    
+    @staticmethod
+    def fromId(id: int):
+        return Action(id)
 
     @staticmethod
     def toJson(actionObject):
